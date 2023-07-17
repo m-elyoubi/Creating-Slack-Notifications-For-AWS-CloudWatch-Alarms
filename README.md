@@ -29,7 +29,7 @@ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"
 ## Create an SNS Topic:
 
 ```sh
-aws sns create-topic --name high-cpu-alarms
+aws sns create-topic --name YourTopicName
 ```
 
 Note the `TopicArn`.
@@ -39,19 +39,18 @@ Note the `TopicArn`.
 Send notification to SNS topic when CPU utilization > 45%:
 
 ```sh
-aws cloudwatch put-metric-alarm \
-    --alarm-name cpu-mon \
-    --alarm-description "Alarm when CPU exceeds 45%" \
-    --metric-name CPUUtilization \
-    --namespace AWS/EC2 \
-    --statistic Average \
-    --period 60 \
-    --evaluation-periods 1 \
-    --threshold 40 \
-    --comparison-operator GreaterThanThreshold \
-    --dimensions Name=InstanceId,Value=i-12345678901234567 \
-    --alarm-actions arn:aws:sns:us-east-1:123456789012:high-cpu-alarms \
-    --unit Percent
+aws cloudwatch put-metric-alarm --alarm-name YourAlarmName \
+  --alarm-description "CPU Utilization > 45%" \
+  --metric-name CPUUtilization \
+  --namespace AWS/EC2 \
+  --statistic Average \
+  --period 300 \
+  --evaluation-periods 1 \
+  --threshold 40 \
+  --comparison-operator GreaterThanThreshold \
+  --dimensions Name=InstanceId,Value=YourInstanceId \
+  --alarm-actions YourSNSTopicARN
+
 ```
 
 ## Create SSM Parameter:
