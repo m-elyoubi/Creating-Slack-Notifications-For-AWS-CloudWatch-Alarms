@@ -19,7 +19,7 @@ Test the webhook:
 curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $WEBHOOK_URL
 ```
 
-## Create an SNS Topic
+## Create an SNS Topic:
 
 ```sh
 aws sns create-topic --name high-cpu-alarms
@@ -27,7 +27,7 @@ aws sns create-topic --name high-cpu-alarms
 
 Note the `TopicArn`.
 
-## Create CloudWatch Alarm
+## Create CloudWatch Alarm:
 
 Send notification to SNS topic when CPU utilization > 45%:
 
@@ -47,24 +47,24 @@ aws cloudwatch put-metric-alarm \
     --unit Percent
 ```
 
-## Create SSM Parameter
+## Create SSM Parameter:
 
 ```sh
 aws ssm put-parameter --cli-input-json '{"Type": "SecureString", "KeyId": "alias/aws/ssm", "Name": "/slack/webhook-url", "Value": "'"$WEBHOOK_URL"'"}'
 ```
 
-## Create Lambda Execution Role
+## Create Lambda Execution Role:
 
 Attach the following managed policies:
 
 - AmazonSSMFullAccess
 - AWSLambdaBasicExecutionRole
 
-## Create Lambda Function
+## Create Lambda Function:
 
 Use the SNS topic as a trigger.
 
-## Stress the CPU
+## Stress the CPU:
 
 ```sh
 # Install Extra Packages for Enterprise Linux
