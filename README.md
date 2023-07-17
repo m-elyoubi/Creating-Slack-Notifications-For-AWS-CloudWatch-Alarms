@@ -74,3 +74,11 @@ sudo yum install -y stress
 # Beat it up for 5 mins
 stress --cpu 2 --timeout 300s
 ```
+
+## After message Posted to Slack:
+```sh
+![slack](https://github.com/m-elyoubi/Creating-Slack-Notifications-for-CloudWatch-Alarms/assets/100800360/439cfb8d-caf5-49c6-a113-1a8089086c64)
+
+``` 
+
+
