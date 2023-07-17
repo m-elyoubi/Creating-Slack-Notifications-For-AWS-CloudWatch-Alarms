@@ -76,6 +76,7 @@ stress --cpu 2 --timeout 300s
 ```
 
 ## After message Posted to Slack:
-https://github.com/m-elyoubi/Creating-Slack-Notifications-for-CloudWatch-Alarms/slack.png
+![slack](https://github.com/m-elyoubi/Creating-Slack-Notifications-for-CloudWatch-Alarms/assets/100800360/faccb70f-e42d-4753-a9ad-4effdfdbc595)
+
 
 
