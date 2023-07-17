@@ -1,5 +1,8 @@
 # Creating Slack Notifications for CloudWatch Alarms
 To post a Slack notification for CloudWatch Alarms when an EC2 instance's CPU utilization reaches greater than 40%, you can follow these steps:
+![Over-Architecture](https://github.com/m-elyoubi/Creating-Slack-Notifications-for-CloudWatch-Alarms/assets/100800360/2597e62c-87fb-45a9-93e8-9bd89da2bca5)
+
+
 ## Set up an Incoming Webhook in Slack:
 
 1. Create a Slack App: <https://api.slack.com/apps/new>
