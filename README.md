@@ -57,7 +57,10 @@ aws cloudwatch put-metric-alarm \
 ## Create SSM Parameter:
 
 ```sh
-aws ssm put-parameter --cli-input-json '{"Type": "SecureString", "KeyId": "alias/aws/ssm", "Name": "/slack/webhook-url", "Value": "'"$WEBHOOK_URL"'"}'
+aws ssm put-parameter --name /slack/webhook-url \
+  --value "YourWebhookURL" \
+  --type SecureString
+
 ```
 
 ## Create Lambda Execution Role:
